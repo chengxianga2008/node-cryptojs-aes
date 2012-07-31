@@ -152,9 +152,9 @@ $.get("/crypto", function(data){
 });
 ```
 
-Also remember to add cryptojs javascript library and JsonFormatter to your index.html file
+Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
-```
+```html
 <script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/aes.js"></script>
 <script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/jsonformatter.js"></script>
 ```
