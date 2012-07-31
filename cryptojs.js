@@ -5,4 +5,4 @@ require('./lib/evpkdf');
 require('./lib/cipher-core');
 require('./lib/aes');
 
-//exports.CryptoJS = CryptoJS;
+exports.CryptoJS = CryptoJS;
