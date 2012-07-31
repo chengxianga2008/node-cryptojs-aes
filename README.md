@@ -112,6 +112,52 @@ var JsonFormatter = {
 };
 ```
 
+If running express to serve http request on node.js, the response can be
+
+```javascript
+app.get('/crypto', function(request, response) {
+
+    // encryption logic here
+
+    response.json({
+	encrypted : encrypted_json_str,
+	passphrase : r_pass_base64
+    });
+
+});
+```
+
+On browser side, it will query the encrypted json string and also passphrase. If using AJAX to access, the code can be
+
+```javascript
+$.get("/crypto", function(data){
+
+    // retrieve encrypted json string 
+    var encrypted_json_str = data.encrypted;
+    		
+    console.log("encrypted json string is: " + encrypted_json_str);
+    		
+    // retrieve passphrase string
+    var r_pass_base64 = data.passphrase;
+    		
+    console.log("passphrase is: " + r_pass_base64);
+    		
+    // decrypt data with encrypted json string, passphrase string and custom JsonFormatter
+    var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
+
+    // convert to Utf8 format
+    var decrypted_str = CryptoJS.enc.Utf8.stringify(decrypted);
+    		
+    console.log("decrypted string: " + decrypted_str);
+});
+```
+
+Also remember to add cryptojs javascript library and JsonFormatter to your index.html file
+
+```
+<script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/aes.js"></script>
+<script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/jsonformatter.js"></script>
+```
 
 
 ## Installation
@@ -121,6 +167,16 @@ Install through npm
 ```
 npm install node-cryptojs-aes
 ```
+
+## Changelog
+
+**node-cryptojs-aes** Version 0.3.7 - 01/08/2012
+  
+  * Add browser side support
+
+**node-cryptojs-aes** Version 0.3.4 - 21/07/2012
+
+  * update to cryptojs v3.0.2
 
 ## Donation
 
