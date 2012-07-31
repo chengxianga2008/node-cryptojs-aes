@@ -182,8 +182,6 @@ npm install node-cryptojs-aes
 
 To support the developer's development and contribute to open source community and node.js community, you might donate money to help out your fellowmen, no matter how large or small, it all counts. With your effort, we can make a better world, Thank you.
 
-[![Donate to author](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W)
-
-
+[![Donate to developer](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QPDFGUA4XRX5E)
 
 
