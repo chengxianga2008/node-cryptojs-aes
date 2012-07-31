@@ -25,6 +25,95 @@ It is built upon award winning browser side javascript library CryptoJS. current
 
 ## Sample Usage
 
+This is a complete example of server encrypt data, browser request encrypted data and passphrase, and processing decipher subsequently.
+
+The logic on node.js server http request handler consists of two parts.
+
+Right off the bat, it generates random passphrase.
+
+```javascript
+//import crypto module to generate random binary data
+var crypto = require('crypto');
+
+// generate random passphrase binary data
+var r_pass = crypto.randomBytes(128);
+
+// convert passphrase to base64 format
+var r_pass_base64 = r_pass.toString("base64");
+
+console.log(r_pass_base64);
+```
+
+Then, it performs data encryption
+
+```javascript
+//import node-cryptojs-aes modules to encrypt or decrypt data
+var node_cryptojs = require('node-cryptojs-aes');
+
+//node-cryptojs-aes main object;
+var CryptoJS = node_cryptojs.CryptoJS;
+
+// custom json serialization format
+var JsonFormatter = node_cryptojs.JsonFormatter;
+
+// encrypt plain text with passphrase and custom json serialization format, return CipherParams object
+var encrypted = CryptoJS.AES.encrypt("I love maccas!", r_pass_base64, { format: JsonFormatter });
+
+// convert CipherParams object to json string for transmission
+var encrypted_json_str = encrypted.toString();
+
+console.log(encrypted_json_str);
+```
+
+JsonFormatter is a custom json serialization implementation, you might create your prefered json serialization to fit into your own structure. The code snippets of JsonFormatter shipped with **node-cryptojs-aes** is as follows.
+
+```javascript
+//create custom json serialization format
+var JsonFormatter = {
+	stringify: function (cipherParams) {
+		// create json object with ciphertext
+		var jsonObj = {
+			ct: cipherParams.ciphertext.toString(CryptoJS.enc.Base64)
+		};
+		
+		// optionally add iv and salt
+		if (cipherParams.iv) {
+			jsonObj.iv = cipherParams.iv.toString();
+		}
+		
+		if (cipherParams.salt) {
+			jsonObj.s = cipherParams.salt.toString();
+		}
+
+		// stringify json object
+		return JSON.stringify(jsonObj)
+	},
+
+	parse: function (jsonStr) {
+		// parse json string
+		var jsonObj = JSON.parse(jsonStr);
+		
+		// extract ciphertext from json object, and create cipher params object
+		var cipherParams = CryptoJS.lib.CipherParams.create({
+			ciphertext: CryptoJS.enc.Base64.parse(jsonObj.ct)
+		});
+		
+		// optionally extract iv and salt
+		if (jsonObj.iv) {
+			cipherParams.iv = CryptoJS.enc.Hex.parse(jsonObj.iv);
+		}
+            
+		if (jsonObj.s) {
+			cipherParams.salt = CryptoJS.enc.Hex.parse(jsonObj.s);
+		}
+		
+		return cipherParams;
+	}
+};
+```
+
+
+
 ## Installation
 
 Install through npm
