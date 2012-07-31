@@ -3,13 +3,7 @@ node-cryptojs-aes
 
 **node-cryptojs-aes** is a minimalist port of cryptojs javascript library to node.js, that supports AES symmetric key cryptography.
 
-Unlike node.js native crypto library, **node-cryptojs-aes** removes openssl dependency.
-
-It is built upon award winning browser side javascript library CryptoJS. currently, it has been updated to be compatible with CryptoJS version 3.0.2. 
-
-**node-cryptojs-aes** doesn't make any modification to original cryptojs library, the syntax remains the same in accordance with [CryptoJS documentation](http://code.google.com/p/crypto-js/) 
-
-**node-cryptojs-aes** doesn't rely on any external dependency, such as native openssl libary or any external node.js modules, It 
+Unlike node.js native crypto library, node-cryptojs-aes removes openssl dependency.
 
 ## node-cryptojs-aes features
 
