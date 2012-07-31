@@ -11,12 +11,14 @@ It is built upon award winning browser side javascript library CryptoJS. current
 
 **node-cryptojs-aes** doesn't rely on any external library, such as native openssl libary or any external node.js modules. As a node.js module, it can simply be installed through npm package management system. There is no configuration needed also.
 
+**node-cryptojs-aes** maximises node.js design spirit. Browser side and server side are running identical javascript cryptography codebase. It allows coder to migrate any browser side logic to server or vice versa without any modification. The message passing between server side and client side has been drastically simplified. The encrypted JSON data is passed between client side and server side without any additional parsing or encoding effort made on both side.
+
 ## Features
 
   * **Self Contained** It doesn't rely on any external dependency.
   * **Server Side Cryptography** It is the only up and running server side javascript cryptography library so far. 
   * **Cross Platform** It is working across all node.js supported platform.
-  * **Code Base** Browser side and server side are running identical javascript cryptography codebase. It allows coder to migrate any browser side logic to server or vice versa without any modification. The message passing between server side and client side has been drastically simplified. The encrypted JSON data is passed between client side and server side without any additional parsing or encoding effort made on both side.
+  * **Code Base** Browser and Server share same codebase.
   * **AES symmetric key cryptography** It supports AES-128, AES-192 and AES-256 Encryption.
   * **Encoding** It supports Base64 encoding, Hexadecimal, Utf-8 and binary.
   * **Cipher Input** The key or iv(initialization vector) can be passed in as parameter of encryption function, or single passphrase can be passed in as parameter.
