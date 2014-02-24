@@ -29,7 +29,7 @@ This is a complete example where server encrypts data, browser requests encrypte
 
 ### Server Side
 ---
-The logic on node.js server http request handler consists of two parts.
+The logic on node.js server `http request handler` consists of two parts.
 #### Part 1
 Right off the bat, it generates random passphrase with the native `node.js crypto` library method.
 
