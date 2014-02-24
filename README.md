@@ -47,27 +47,35 @@ var r_pass = crypto.randomBytes(128);
 // convert passphrase to base64 format
 var r_pass_base64 = r_pass.toString("base64");
 
+console.log("passphrase base64 format: ");
 console.log(r_pass_base64);
 ```
 #### Part 2
 Then, it performs data encryption
 
 ```javascript
-//import node-cryptojs-aes modules to encrypt or decrypt data
+// import node-cryptojs-aes modules to encrypt or decrypt data
 var node_cryptojs = require('node-cryptojs-aes');
 
-//node-cryptojs-aes main object;
+// node-cryptojs-aes main object;
 var CryptoJS = node_cryptojs.CryptoJS;
 
 // custom json serialization format
 var JsonFormatter = node_cryptojs.JsonFormatter;
 
+// message to cipher
+var message = "I love maccas!";
+
 // encrypt plain text with passphrase and custom json serialization format, return CipherParams object
-var encrypted = CryptoJS.AES.encrypt("I love maccas!", r_pass_base64, { format: JsonFormatter });
+// r_pass_base64 is the passphrase generated from first stage
+// message is the original plain text  
+
+var encrypted = CryptoJS.AES.encrypt(message, r_pass_base64, { format: JsonFormatter });
 
 // convert CipherParams object to json string for transmission
 var encrypted_json_str = encrypted.toString();
 
+console.log("serialized CipherParams object: ");
 console.log(encrypted_json_str);
 ```
 
