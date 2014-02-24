@@ -29,6 +29,8 @@ This is a complete example where server encrypts data, browser requests encrypte
 
 ### Server Side
 ---
+This part of code snippets are located in demo/server.js. Test out in command line:
+`node server.js`
 The logic on node.js server `http request handler` consists of two parts.
 #### Part 1
 Right off the bat, it generates random passphrase using the native `node.js crypto` library method.
