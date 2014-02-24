@@ -30,8 +30,8 @@ This is a complete example where server encrypts data, browser requests encrypte
 ### Server Side
 ---
 The logic on node.js server http request handler consists of two parts.
-
-* Right off the bat, it generates random passphrase.
+#### Part 1
+Right off the bat, it generates random passphrase.
 
 ```javascript
 //import crypto module to generate random binary data
@@ -45,8 +45,8 @@ var r_pass_base64 = r_pass.toString("base64");
 
 console.log(r_pass_base64);
 ```
-
-* Then, it performs data encryption
+#### Part 2
+Then, it performs data encryption
 
 ```javascript
 //import node-cryptojs-aes modules to encrypt or decrypt data
