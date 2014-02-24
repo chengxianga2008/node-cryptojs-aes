@@ -71,7 +71,7 @@ var encrypted_json_str = encrypted.toString();
 console.log(encrypted_json_str);
 ```
 
-JsonFormatter is a custom json serialization implementation, you might create your prefered json serialization to fit into your own structure. The code snippets of JsonFormatter shipped with **node-cryptojs-aes** is as follows.
+JsonFormatter is a custom json serialization implementation, you might create your prefered json serialization to fit into your own structure. According to [CryptoJS documentation](http://code.google.com/p/crypto-js/), the code snippets of JsonFormatter shipped with **node-cryptojs-aes** is as follows.
 
 ```javascript
 //create custom json serialization format
