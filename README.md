@@ -23,7 +23,7 @@ It is built upon award winning browser side javascript library CryptoJS. current
   * **Encoding** It supports Base64 encoding, Hexadecimal, Utf-8 and binary.
   * **Cipher Input** The key or iv(initialization vector) can be passed in as parameter of encryption function, or single passphrase can be passed in as parameter.
 
-## Sample Usage
+### Sample Usage
 
 This is a complete example where server encrypts data, browser requests encrypted data and passphrase, then processes decipher subsequently.
 
