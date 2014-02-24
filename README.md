@@ -28,7 +28,7 @@ It is built upon award winning browser side javascript library CryptoJS. current
 This is a complete example where server encrypts data, browser requests encrypted data and passphrase, then processes decipher subsequently.
 
 ### Server Side
-
+---
 The logic on node.js server http request handler consists of two parts.
 
 Right off the bat, it generates random passphrase.
