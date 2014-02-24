@@ -5,7 +5,7 @@ node-cryptojs-aes
 
 Unlike node.js native crypto library, **node-cryptojs-aes** removes openssl dependency.
 
-It is built upon award winning browser side javascript library CryptoJS. currently, it has been updated to be compatible with CryptoJS version 3.0.2. 
+It is built upon award winning browser side javascript library CryptoJS. currently, it has been updated to be compatible with CryptoJS version 3.1. 
 
 **node-cryptojs-aes** doesn't make any modification to original cryptojs library, the syntax remains the same in accordance with [CryptoJS documentation](http://code.google.com/p/crypto-js/). 
 
@@ -25,7 +25,7 @@ It is built upon award winning browser side javascript library CryptoJS. current
 
 ## Sample Usage
 
-This is a complete example of server encrypt data, browser request encrypted data and passphrase, and processing decipher subsequently.
+This is a complete example where server encrypts data, browser requests encrypted data and passphrase, then processes decipher subsequently.
 
 The logic on node.js server http request handler consists of two parts.
 
@@ -170,13 +170,20 @@ npm install node-cryptojs-aes
 
 ## Changelog
 
+**node-cryptojs-aes** Version 0.3.8 - 23/02/2014
+  
+  * Upgrade to cryptojs v3.1
+  * Test compatibility with nodes.js v0.10.26
+  * Add express 3 use case
+  * Refine the Readme document
+
 **node-cryptojs-aes** Version 0.3.7 - 01/08/2012
   
   * Add browser side support
 
 **node-cryptojs-aes** Version 0.3.4 - 21/07/2012
 
-  * update to cryptojs v3.0.2
+  * Update to cryptojs v3.0.2
 
 ## Donation
 
