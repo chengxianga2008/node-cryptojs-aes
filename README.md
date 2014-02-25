@@ -26,6 +26,8 @@ It is built upon award winning browser side javascript library CryptoJS. current
 ## Sample Usage
 
 This is a complete example where server encrypts data, browser requests encrypted data and passphrase, then processes decipher subsequently.
+To best demostrate the library structure, and separate client side and server side, the server is going to be hosted on localhost:3000, whereas client can be run on any
+standard http server. I real world, however, application can be integrated into Express sinatra pattern.
 
 ### Server Side
 ---
