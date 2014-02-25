@@ -140,16 +140,29 @@ The serialized cipherParams object defaults OPENSSL-compatible format. It contai
 If running express to serve http request on node.js, the response can be
 
 ```javascript
-app.get('/crypto', function(request, response) {
+//express 3 application
+var express = require('express');
+var app = express();
 
-    // encryption logic here
+// browser request serialized cipherParams object in path /crypto/encrypted
+app.get('/crypto/encrypted', function(request, response) {
 
     response.json({
-	encrypted : encrypted_json_str,
-	passphrase : r_pass_base64
+        encrypted : encrypted_json_str
     });
 
 });
+
+// browser request passphrase in path /crypto/passphrase
+app.get('/crypto/passphrase', function(request, response) {
+
+    response.json({
+        passphrase : r_pass_base64
+    });
+
+});
+
+app.listen(3000);
 ```
 
 ### Browser Side
