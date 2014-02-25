@@ -208,9 +208,54 @@ Data masking applied here protects sensitive data(such as credit card number) fr
 It is worth noting that this approach comes into handy if there are requirements **large amount** of sensitive data need to be processed and stored in the client side at page construction time.
 Once passphrase is passed from server, client will do the heavy lifting to decipher and reveal the masked data, **reduce server load and processing time**.
 
-On the other hand, AJAX request will consume bandwidth when passing large amount sensitive data in real time, impose heavy workload on server at spike time, also browsing is delayed if network is lagging.
+On the other hand, AJAX request will consume bandwidth when passing large amount sensitive data in real time, impose heavy workload on server at `spike time`, also browsing is delayed if network is lagging.
 
 Last but not least, `node-cryptojs-aes` frontend data masking is aimed at preventing frontend data hacker malicious behaviour, it can't stop MITM attack.
+
+#### Decryption logic
+
+The logic of browser decryption also can be divided into two parts.
+
+##### Part 1
+retrieve passphrase with a AJAX call
+```javascript
+// define server passphrase JSONP path
+		var passphrase_url = "http://localhost:3000/crypto/passphrase?callback=?";
+		
+		// JSONP AJAX call to node.js server running on localhost:3000
+		$.getJSON(passphrase_url, function(data){
+
+			// retrieve passphrase string
+		    var r_pass_base64 = data.passphrase;
+
+		    console.log("passphrase: ");
+		    console.log(r_pass_base64);
+		    
+		    // for demostration, display passphrase explicitly
+		    $("#passphrase_heading").text("Passphrase").removeClass("display_none");
+		    $("#passphrase_data").text(r_pass_base64).removeClass("display_none");
+		    
+		    // take out masked data from div tag 
+		    var encrypted_json_str = $("#data_store").text();
+		    
+		    // decrypt data with encrypted json string, passphrase string and custom JsonFormatter
+		    var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
+
+		    // convert to Utf8 format unmasked data
+		    var decrypted_str = CryptoJS.enc.Utf8.stringify(decrypted);
+
+		    console.log("decrypted string: " + decrypted_str);
+		    
+		    
+		    // convert into unmasked data and store in the div tag
+		    $("#data_store").text(decrypted_str);
+		    
+		    // for demostration, display unmasked data explicitly
+		    $("#example_heading").text("Unmasked data");
+		    $("#example_data").text(decrypted_str);
+
+		});
+```
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
