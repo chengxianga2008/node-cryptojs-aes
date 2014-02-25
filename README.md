@@ -222,43 +222,37 @@ The logic of browser decryption also can be divided into two parts.
 retrieve passphrase with a AJAX call
 ```javascript
 // define server passphrase JSONP path
-		var passphrase_url = "http://localhost:3000/crypto/passphrase?callback=?";
+var passphrase_url = "http://localhost:3000/crypto/passphrase?callback=?";
 		
-		// JSONP AJAX call to node.js server running on localhost:3000
-		$.getJSON(passphrase_url, function(data){
+// JSONP AJAX call to node.js server running on localhost:3000
+$.getJSON(passphrase_url, function(data){
 
-			// retrieve passphrase string
-		    var r_pass_base64 = data.passphrase;
+	// retrieve passphrase string
+    var r_pass_base64 = data.passphrase;
 
-		    console.log("passphrase: ");
-		    console.log(r_pass_base64);
+    console.log("passphrase: ");
+    console.log(r_pass_base64);
 		    
-		    // for demostration, display passphrase explicitly
-		    $("#passphrase_heading").text("Passphrase").removeClass("display_none");
-		    $("#passphrase_data").text(r_pass_base64).removeClass("display_none");
-		    
-		    // take out masked data from div tag 
-		    var encrypted_json_str = $("#data_store").text();
-		    
-		    // decrypt data with encrypted json string, passphrase string and custom JsonFormatter
-		    var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
+	// decipher part
 
-		    // convert to Utf8 format unmasked data
-		    var decrypted_str = CryptoJS.enc.Utf8.stringify(decrypted);
-
-		    console.log("decrypted string: " + decrypted_str);
-		    
-		    
-		    // convert into unmasked data and store in the div tag
-		    $("#data_store").text(decrypted_str);
-		    
-		    // for demostration, display unmasked data explicitly
-		    $("#example_heading").text("Unmasked data");
-		    $("#example_data").text(decrypted_str);
-
-		});
+});
 ```
+##### Part 2
+```javascript
+// take out masked data from div tag 
+var encrypted_json_str = $("#data_store").text();
+		    
+// decrypt data with encrypted json string, passphrase string and custom JsonFormatter
+var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
 
+// convert to Utf8 format unmasked data
+var decrypted_str = CryptoJS.enc.Utf8.stringify(decrypted);
+
+console.log("decrypted string: " + decrypted_str);
+		    
+// convert into unmasked data and store in the div tag
+$("#data_store").text(decrypted_str);		    
+```
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
 ```html
