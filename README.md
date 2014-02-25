@@ -4,6 +4,7 @@ node-cryptojs-aes
 [![Build](https://travis-ci.org/chengxianga2008/node-cryptojs-aes.png)](https://travis-ci.org/chengxianga2008/node-cryptojs-aes)
 [![Coverage](https://coveralls.io/repos/chengxianga2008/node-cryptojs-aes/badge.png)](https://coveralls.io/r/chengxianga2008/node-cryptojs-aes)
 [![Dependencies](https://david-dm.org/chengxianga2008/node-cryptojs-aes.png)](https://david-dm.org/chengxianga2008/node-cryptojs-aes)
+[![Tips](http://img.shields.io/gittip/chengxianga2008.png)](https://www.gittip.com/chengxianga2008/)
 
 **node-cryptojs-aes** is a minimalist port of cryptojs javascript library to node.js, that supports AES symmetric key cryptography.
 
