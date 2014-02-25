@@ -219,7 +219,7 @@ Last but not least, `node-cryptojs-aes` frontend data masking is aimed at preven
 The logic of browser decryption also can be divided into two parts.
 
 ##### Part 1
-retrieve passphrase with a AJAX call
+Retrieve passphrase with a AJAX call
 ```javascript
 // define server passphrase JSONP path
 var passphrase_url = "http://localhost:3000/crypto/passphrase?callback=?";
@@ -238,6 +238,7 @@ $.getJSON(passphrase_url, function(data){
 });
 ```
 ##### Part 2
+Last step, data is unmasked by calling browser AES script, take passphrase and JsonFormatter as parameter
 ```javascript
 // take out masked data from div tag 
 var encrypted_json_str = $("#data_store").text();
