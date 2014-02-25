@@ -52,7 +52,7 @@ var r_pass_base64 = r_pass.toString("base64");
 console.log("passphrase base64 format: ");
 console.log(r_pass_base64);
 ```
-#### Part 2
+##### Part 2
 Then, it performs data encryption
 
 ```javascript
@@ -127,7 +127,7 @@ var JsonFormatter = {
 	}
 };
 ```
-
+#### Express3 integration
 If running express to serve http request on node.js, the response can be
 
 ```javascript
