@@ -141,6 +141,8 @@ app.get('/crypto', function(request, response) {
 });
 ```
 
+### Browser Side
+---
 On browser side, it will query the encrypted json string and also passphrase. If using AJAX to access, the code can be
 
 ```javascript

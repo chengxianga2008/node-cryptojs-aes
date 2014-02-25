@@ -42,16 +42,3 @@ var encrypted_json_str = encrypted.toString();
 
 console.log("serialized CipherParams object: ");
 console.log(encrypted_json_str);
-
-// browser side
-//var encrypted_obj = CryptoJS.enc.Base64.parse(encrypted_base64);
-
-
-//var jsonr = JSON.parse(encrypted_json_str);
-
-var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
-
-//var words = decrypted.words;
-//console.log(words);
-var str = CryptoJS.enc.Utf8.stringify(decrypted);
-console.log("str: " + str );
