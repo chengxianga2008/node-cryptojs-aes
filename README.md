@@ -30,6 +30,8 @@ This is a complete example where server encrypts data, browser requests encrypte
 To best demostrate the library structure, and separate client side and server side, the server is going to be hosted on `localhost:3000`, whereas client can be run on any
 standard `http server`. Communication is carried out through [JSONP](http://api.jquery.com/jquery.getjson/). I real world, however, application can be integrated into Express sinatra pattern.
 
+Browser side is powered by [Bootstrap](http://getbootstrap.com/) Cover Template.
+
 ### Server Side
 ---
 This part of code snippets are located in examples/server/server.js. Test out in command line:
