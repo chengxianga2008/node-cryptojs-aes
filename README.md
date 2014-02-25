@@ -127,9 +127,13 @@ var JsonFormatter = {
 	}
 };
 ```
-The serialized cipherParams defaults OPENSSL-compatible format. It contains 3 properties, a IV, a salt and a cipher text encrypted by AES.
+The serialized cipherParams object defaults OPENSSL-compatible format. It contains 3 properties, a IV, a salt and a cipher text encrypted by AES.
 ```javascript
-{"ct":"gpiVs3D4dqUI/G8F+8Elgg==","iv":"008fffd119971f34dbd29e80a823cef2","s":"43e2badf9eb689fd"}
+{
+  "ct":"gpiVs3D4dqUI/G8F+8Elgg==",  //result of encryption performed on plaintext
+  "iv":"008fffd119971f34dbd29e80a823cef2", //IV
+  "s":"43e2badf9eb689fd"  //salt
+}
 ```
 
 #### Express3 integration
