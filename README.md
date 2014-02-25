@@ -178,6 +178,8 @@ app.listen(3000);
 
 ### Browser Side(Frontend Data Masking)
 ---
+This part of code snippets are located in examples/browser.
+
 On browser side, The encrypted JSON string(masked data) should be embedded in a hidden tag when first time construct the page.
 
 For demostration and simplicity, in our example, the encrypted JSON string is added to a hidden tag through AJAX.  
@@ -255,7 +257,7 @@ console.log("decrypted string: " + decrypted_str);
 $("#data_store").text(decrypted_str);		    
 ```
 Last thing, don't forget to add browser AES script and JsonFormatter to your index.html file.
-You can load it straight away by github CDN network
+You can load it straight away via github CDN network
 
 ```html
 <script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/aes.js"></script>
