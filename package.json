@@ -1,8 +1,8 @@
 {
   "author": "Jack Carrick Xiang Cheng <chengxianga2008@yahoo.com> (inovlab.com)",
   "name": "node-cryptojs-aes",
-  "description": "Standalone cryptographic library. A minimalist port of cryptojs javascript library to node.js, that supports AES symmetric key cryptography.",
-  "version": "0.3.9",
+  "description": "Standalone cryptographic library. A minimalist port of cryptojs javascript library to node.js, that supports AES symmetric key cryptography. node-cryptojs-aes works great on frontend data masking and unmasking.",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/chengxianga2008/node-cryptojs-aes.git"
@@ -10,9 +10,18 @@
   "main": "cryptojs.js",
   "dependencies": {},
   "devDependencies": {},
+  "keywords": [
+    "cryptojs",
+    "aes",
+    "data masking",
+    "cryptography",
+    "frontend",
+    "encryption"
+  ],
   "optionalDependencies": {},
   "engines": {
     "node": "*"
   },
-  "homepage": "https://github.com/chengxianga2008/node-cryptojs-aes"
+  "homepage": "https://github.com/chengxianga2008/node-cryptojs-aes",
+  "license": "MIT"
 }
