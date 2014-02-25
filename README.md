@@ -200,7 +200,7 @@ $.getJSON(encrypted_url, function(data){
 });
 ```
 [Data Masking](http://en.wikipedia.org/wiki/Data_masking)
-The masked data won't be 
+> The main reason for applying masking to a data field is to protect data that is classified as personal identifiable data, personal sensitive data or commercially sensitive data. 
 
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
