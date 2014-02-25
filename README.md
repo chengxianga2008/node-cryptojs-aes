@@ -208,7 +208,9 @@ Data masking applied here protects sensitive data(such as credit card number) fr
 It is worth noting that this approach comes into handy if there are requirements **large amount** of sensitive data need to be processed and stored in the client side at page construction time.
 Once passphrase is passed from server, client will do the heavy lifting to decipher and reveal the masked data, **reduce server load and processing time**.
 
-On the other hand, AJAX request will consume bandwidth when passing large amount sensitive data in real time, also the is delayed if network is not 
+On the other hand, AJAX request will consume bandwidth when passing large amount sensitive data in real time, impose heavy workload on server at spike time, also browsing is delayed if network is lagging.
+
+Last but not least, `node-cryptojs-aes` frontend data masking is aimed at preventing frontend data hacker malicious behaviour, it can't stop MITM attack.
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
