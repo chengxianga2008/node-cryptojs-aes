@@ -176,7 +176,7 @@ app.listen(3000);
 
 ### Browser Side(Frontend Data Masking)
 ---
-On browser side, The encrypted JSON string should be embedded in a hidden tag when first time construct the page.
+On browser side, The encrypted JSON string(masked data) should be embedded in a hidden tag when first time construct the page.
 
 For demostration and simplicity, in our example, the encrypted JSON string is added to a hidden tag through AJAX.  
 
@@ -199,7 +199,8 @@ $.getJSON(encrypted_url, function(data){
 
 });
 ```
-
+[Data Masking](http://en.wikipedia.org/wiki/Data_masking)
+The masked data won't be 
 
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
