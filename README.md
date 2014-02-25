@@ -254,13 +254,14 @@ console.log("decrypted string: " + decrypted_str);
 // convert into unmasked data and store in the div tag
 $("#data_store").text(decrypted_str);		    
 ```
-Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
+Last thing, don't forget to add browser AES script and JsonFormatter to your index.html file.
+You can load it straight away by github CDN network
 
 ```html
 <script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/aes.js"></script>
 <script type="text/javascript" src="http://chengxianga2008.github.com/node-cryptojs-aes/client/jsonformatter.js"></script>
 ```
-
+Or you can find your own copy at client/ folder
 
 ## Installation
 
