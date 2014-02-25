@@ -127,6 +127,11 @@ var JsonFormatter = {
 	}
 };
 ```
+The serialized cipherParams defaults OPENSSL-compatible format. It contains 3 properties, a IV, a salt and a cipher text encrypted by AES.
+```javascript
+{"ct":"gpiVs3D4dqUI/G8F+8Elgg==","iv":"008fffd119971f34dbd29e80a823cef2","s":"43e2badf9eb689fd"}
+```
+
 #### Express3 integration
 If running express to serve http request on node.js, the response can be
 
