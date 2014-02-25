@@ -13,6 +13,8 @@ It is built upon award winning browser side javascript library CryptoJS. current
 
 **node-cryptojs-aes** maximises node.js design spirit. Browser side and server side are running identical javascript cryptography codebase. It allows coder to migrate any browser side logic to server or vice versa without any modification. The message passing between server side and client side has been drastically simplified. The encrypted JSON data is passed between client side and server side without any additional parsing or encoding effort made on both side.
 
+**node-cryptojs-aes** works great on frontend data masking and unmasking. Client will do the heavy lifting to decipher and reveal the masked data, reduce server load and processing time.
+
 ## Features
 
   * **Self Contained** It doesn't rely on any external dependency.
