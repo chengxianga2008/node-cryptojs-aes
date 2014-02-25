@@ -176,7 +176,9 @@ app.listen(3000);
 
 ### Browser Side
 ---
-On browser side, it will query the encrypted json string and also passphrase. If using AJAX to access, the code can be
+On browser side, The encrypted JSON string should be embedded in a hidden tag when first time construct the page.
+
+For demostration and simplicity, in our example, the encrypted JSON string is added to a hidden tag through AJAX.  
 
 ```javascript
 $.get("/crypto", function(data){
