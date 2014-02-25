@@ -202,8 +202,13 @@ $.getJSON(encrypted_url, function(data){
 [Data Masking](http://en.wikipedia.org/wiki/Data_masking)
 > The main reason for applying masking to a data field is to protect data that is classified as personal identifiable data, personal sensitive data or commercially sensitive data. 
 
-Hacker and expert won't be able to access real messages through fronend code inspecting approach, such as `Firebug` or `Chrome developer tools`.
-Data masking applied here protects sensitive data(such as credit card number) from being viewed by frontend code analysis without system authorization.
+Hacker and expert won't be able to access real messages through frontend code inspecting approach, such as `Firebug` or `Chrome developer tools`.
+Data masking applied here protects sensitive data(such as credit card number) from being viewed by frontend code analysis without authorization.
+
+It is worth noting that this approach comes into handy if there are requirements **large amount** of sensitive data need to be processed and stored in the client side at page construction time.
+Once passphrase is passed from server, client will do the heavy lifting to decipher and reveal the masked data, **reduce server load and processing time**.
+
+On the other hand, AJAX request will consume bandwidth when passing large amount sensitive data in real time, also the is delayed if network is not 
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
