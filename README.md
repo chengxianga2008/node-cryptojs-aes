@@ -174,34 +174,33 @@ app.get('/crypto/passphrase', function(request, response) {
 app.listen(3000);
 ```
 
-### Browser Side
+### Browser Side(Frontend Data Masking)
 ---
 On browser side, The encrypted JSON string should be embedded in a hidden tag when first time construct the page.
 
 For demostration and simplicity, in our example, the encrypted JSON string is added to a hidden tag through AJAX.  
 
 ```javascript
-$.get("/crypto", function(data){
+// retrieve encrypted json string when loading page
+// define server cipherParams JSONP path
+var encrypted_url = "http://localhost:3000/crypto/encrypted?callback=?";
+	
+// JSONP AJAX call to node.js server running on localhost:3000
+$.getJSON(encrypted_url, function(data){
 
-    // retrieve encrypted json string 
-    var encrypted_json_str = data.encrypted;
-    		
-    console.log("encrypted json string is: " + encrypted_json_str);
-    		
-    // retrieve passphrase string
-    var r_pass_base64 = data.passphrase;
-    		
-    console.log("passphrase is: " + r_pass_base64);
-    		
-    // decrypt data with encrypted json string, passphrase string and custom JsonFormatter
-    var decrypted = CryptoJS.AES.decrypt(encrypted_json_str, r_pass_base64, { format: JsonFormatter });
+	// retrieve encrypted json string 
+	var encrypted_json_str = data.encrypted;
 
-    // convert to Utf8 format
-    var decrypted_str = CryptoJS.enc.Utf8.stringify(decrypted);
-    		
-    console.log("decrypted string: " + decrypted_str);
+	console.log("encrypted json string: ");
+	console.log(encrypted_json_str);
+	    
+	// store masked data into a div tag
+	$("#data_store").text(encrypted_json_str);
+
 });
 ```
+
+
 
 Also remember to add cryptojs javascript library and JsonFormatter to your index.html file.
 
